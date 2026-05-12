@@ -1,0 +1,19 @@
+Java
+public class Main {
+    public static void main(String[] args) {
+        Cliente fulano = new Cliente();
+        fulano.setNome("Fulano de Tal");
+
+        // Polimorfismo: Uma ContaCorrente sendo referenciada como sua classe pai Conta
+        Conta cc = new ContaCorrente(fulano);
+        Conta poupanca = new ContaPoupanca(fulano);
+
+        cc.depositar(100);
+        
+        // Polimorfismo no método transferir: ele aceita qualquer IConta
+        cc.transferir(45.50, poupanca);
+
+        cc.imprimirExtrato();
+        poupanca.imprimirExtrato();
+    }
+}
